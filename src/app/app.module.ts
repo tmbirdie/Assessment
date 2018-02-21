@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule} from '@angular/router';
-import {MaterialModule} from '@angular/material';
+import { MyMaterialModule } from './my-material.module';
 
 import { AppRoutes} from './app.routes';
 
@@ -17,7 +17,7 @@ import { MainComponent } from './main/main.component';
   ],
   imports: [
     RouterModule.forRoot(AppRoutes),
-    MaterialModule.forRoot(),
+    MyMaterialModule,
     BrowserModule,
     FormsModule,
     HttpModule
