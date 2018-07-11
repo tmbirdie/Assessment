@@ -1,4 +1,29 @@
-<p>
-  main Component!
-</p>
-<button mat-button>Click me!</button>
+<mat-card>
+  <p>
+    Type a name in the input box below to search for users.
+  </p>
+
+  <form class="example-form">
+    <mat-form-field>
+      <input matInput placeholder="Username" [(ngModel)]="name" [ngModelOptions]="{standalone: true}">
+    </mat-form-field>
+
+
+  </form>
+
+  <button mat-raised-button color="primary" (click)="getUsers()">Find Users!</button>
+
+  <p class="no-data-or-error" *ngIf="noData">{{noDataMessage}}</p>
+  <p class="no-data-or-error" *ngIf="isError">{{errorMessage}}</p>
+  <p class="count-message" *ngIf="count > 0">{{countMessage}}</p>
+
+  <mat-list *ngIf="userData">
+    <mat-list-item *ngFor="let users of userData">
+      <h4 mat-line>{{users.login}}</h4>
+      <a mat-line href="{{users.avatar_url}}" target="_blank">Avatar</a>
+    </mat-list-item>
+  </mat-list>
+
+</mat-card>
+
+
